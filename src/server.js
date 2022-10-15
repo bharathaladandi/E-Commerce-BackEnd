@@ -10,6 +10,7 @@ const productRoute = require("./features/product/product.router");
 const cartRoute = require("./features/cart/cart.router");
 
 
+
 const PORT = process.env.PORT;
 
 const app = express();
@@ -18,7 +19,7 @@ app.use(cors());
 
 
 app.use("/users", userRoute)
-app.use("/producs", productRoute)
+app.use("/products", productRoute)
 app.use("/carts", cartRoute)
 
 
