@@ -11,7 +11,7 @@ const cartRoute = require("./features/cart/cart.router");
 
 
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8003;
 
 const app = express();
 app.use(express.json());
@@ -25,7 +25,19 @@ app.use("/carts", cartRoute)
 
 
 
+// app.listen(PORT, async () => {
+//     await connect();
+//     console.log(`Listening on http://localhost:${PORT}`);
+// })
+
 app.listen(PORT, async () => {
-    await connect();
-    console.log(`Listening on http://localhost:${PORT}`);
+    try{
+        await connect;
+        console.log("Connected to DB Successfully")
+    }
+    catch(err){
+        console.log("Error connecting to DB")
+        console.log(err)
+    }
+    console.log("Listening on PORT 8080")
 })
